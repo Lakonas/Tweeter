@@ -1,29 +1,33 @@
 .navbar {
   height: 120px;
+  width: 100%;
   background-color: #4056A1;
   color: #FFFFFF;
-  line-height: 5.15;
+  line-height: 1.15;
   padding-left: 1.5em ;
   padding-right: 1.5em;
+  position: fixed;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  
 
 }
 
 
-.navbar span {
+.navbar .navbar-brand {  /* Target the specific span with class 'navbar-brand' */
   font-family: 'Bungee', sans-serif;
 }
 
-.navbar.writetweet {
+.navbar .writetweet {
   color: #FFFFFF;
   margin-left: auto;
-  font-size: 10px;
+  font-size: 20px;
   display:flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
 
 }
 
