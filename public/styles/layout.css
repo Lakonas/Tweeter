@@ -25,4 +25,13 @@ html {
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
+.main{
 
+  width:90%;
+  background-color: cornsilk;
+  display:flex;
+  justify-content: center;
+
+
+
+}
