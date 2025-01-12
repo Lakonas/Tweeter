@@ -29,8 +29,9 @@ html {
 
   width:90%;
   margin: 0 auto;
-  background-color: inherit;
-
+  background-color: cornsilk;
+  display: flex;
+  justify-content: flex-start;
 
 
 }
