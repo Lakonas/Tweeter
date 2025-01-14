@@ -3,8 +3,8 @@ $(document).ready(function() {
 
   
   $('#tweet-text').on('input', function() {
-    const currentCount = $(this).val().length;  // Get the current character count
-    const charsLeft = charCount - currentCount;  // Calculate the remaining characters
+    const currentCount = $(this).val().length;  
+    const charsLeft = charCount - currentCount;  
 
     
     const counter = $(this).parent().find('.counter');  // Adjusted: use parent() to find the counter within the same form
@@ -14,9 +14,9 @@ $(document).ready(function() {
 
     
     if (charsLeft < 0) {
-      counter.css('color', 'red');  // Red if characters exceed the limit
+      counter.addClass('red');  // Add the 'red' class if over the character limit
     } else {
-      counter.css('color', 'black');  // Black if within the character limit
+      counter.removeClass('red');  // Remove the 'red' class if within the limit
     }
   });
 });
