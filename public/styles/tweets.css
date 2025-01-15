@@ -1,0 +1,18 @@
+.tweets {
+
+  width: 100%;
+  max-width: 1800px; /* You can adjust this width */
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color:cornsilk;
+
+}
+
+label {
+
+  align-self: flex-start;
+  text-align: left;
+  font-weight:normal;
+  margin-bottom: 8px;
+}
