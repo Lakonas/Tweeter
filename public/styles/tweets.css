@@ -1,17 +1,8 @@
-.tweets {
-
-  width: 100%;
-  max-width: 120px; /* You can adjust this width */
+.tweet {
+  width: 90%;
+  max-width: 900px;
   padding: 20px;
   border: 1px solid #ddd;
   border-radius: 10px;
-  background-color:cornsilk;
-
-}
-
-article.tweets {
-
-  display: flex;
-  align-items:center;
-
+  background-color: cornsilk !important;
 }
