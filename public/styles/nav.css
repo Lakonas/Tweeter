@@ -4,15 +4,22 @@
   background-color: #4056A1;
   color: #FFFFFF;
   line-height: 1.15;
-  padding-left: 1.5em ;
+  padding-left: 1.5em;
   padding-right: 1.5em;
   position: fixed;
+  top: 0; /* Position the navbar at the top */
+  left: 0; /* Ensure it's aligned to the left edge */
   display: flex;
   align-items: center;
   justify-content: space-between;
-  
-
+  z-index: 1000; /* Ensures the navbar stays on top of other elements */
 }
+
+/* Optional: Add some padding to the body to prevent overlap */
+body {
+  padding-top: 120px; /* Add padding equivalent to the height of the navbar */
+}
+
 
 
 .navbar .navbar-brand { 
