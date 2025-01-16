@@ -1,7 +1,7 @@
 .tweets {
 
   width: 100%;
-  max-width: 1800px; /* You can adjust this width */
+  max-width: 120px; /* You can adjust this width */
   padding: 20px;
   border: 1px solid #ddd;
   border-radius: 10px;
@@ -9,10 +9,9 @@
 
 }
 
-label {
+article.tweets {
 
-  align-self: flex-start;
-  text-align: left;
-  font-weight:normal;
-  margin-bottom: 8px;
+  display: flex;
+  align-items:center;
+
 }
