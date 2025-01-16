@@ -32,6 +32,7 @@ html {
   background-color: cornsilk;
   display: flex;
   justify-content: flex-start;
+  flex-direction: column;
 
 
 }
