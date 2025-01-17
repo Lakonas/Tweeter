@@ -2,10 +2,75 @@
 .tweet-container {
   width: 90%;
   max-width: 900px;
-  margin: 20px auto;
+  margin: 20px 0 20px 20px; /* Align left by removing auto on the right side */
   padding: 20px;
   background-color: #f9f9f9;
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+/* Styling for individual tweet */
+article.tweet {
+  background-color: #fff;
+  border: 1px solid black;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  padding: 15px;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effect for tweet */
+.tweet:hover {
+  background-color: #f0f8ff;
+}
+
+/* Styling for the tweet header */
+article.tweet header {
+  display: flex;
+  justify-content: space-between; /* Aligns the name and username on opposite sides */
+  align-items: center;
+}
+
+.username {
+  font-weight: bold;
+  font-size: 1.1em;
+  color: #1da1f2;
+  margin-left: auto; /* Push username to the right */
+}
+
+.name {
+  font-size: 0.9em;
+  color: #657786;
+}
+
+/* Styling for the tweet content */
+.tweet-content {
+  font-size: 1.1em;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.tweet footer {
+  display: flex;
+  justify-content: space-between; /* Distribute content: timestamp on left, icons container on right */
+  align-items: center;
+  font-size: 0.9em;
+}
+
+footer .timestamp {
+  flex-grow: 1; /* This makes the timestamp take up all available space on the left */
+}
+
+footer .icons {
+  display: flex; /* Flexbox to align icons */
+  gap: 8px; /* Space between the icons */
+}
+
+footer .icons i {
+  font-size: 1.2em; /* Adjust icon size if needed */
+  cursor: pointer; /* Add pointer cursor to icons for interactivity */
+}
+
+footer .icons i:hover {
+  color: #1da1f2; /* Change color on hover */
+}
