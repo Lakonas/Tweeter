@@ -30,68 +30,74 @@
     <!-- Top nav bar (fixed) -->
     <nav class="navbar">
       <span class="navbar-brand">tweeter</span> 
-    <div class="writetweet">
-      <span>Write a new tweet</span>
-      <i class="fa-solid fa-angles-down"></i>
+      <div class="writetweet">
+        <span>Write a new tweet</span>
+        <i class="fa-solid fa-angles-down"></i>
+      </div>
     </nav>
+
     <header class="profile">
       <div>
-        <img class="avatar" src="/images/profile-hex.png">
+        <img class="avatar" src="/images/profile-hex.png" />
       </div>
-      <br>
+      <br />
       <div>
         <h2>Your Name</h2>
       </div>
     </header>
+
     <!-- Page-specific (main) content here -->
     <main class="container">
+      <!-- New tweet section -->
       <section class="new-tweet">
-        <!--<h2>Compose Tweet</h2>-->
         <form method="post" action="/tweets/">
           <label for="tweet-text">What are you humming about?</label>
           <textarea name="text" id="tweet-text"></textarea>
           <div>
             <button type="submit">Tweet</button>
             <output name="counter" class="counter" for="tweet-text">140</output>
-            
           </div>
         </form>
       </section>
 
-      <section class="tweet-container">
+      <!-- Tweets container (holds individual tweets) -->
+      <section class="tweets-container"> <!-- Nested inside the main container -->
+        <!-- Other tweets (2 tweets) -->
         <article class="tweet">
           <header>
+            <img class ="newtavatar" src="https://i.imgur.com/73hZDYK.png">
             <span class="name">Newton</span>
-            <span class="username">@username</span>
-            
-          </header>
-          
+            <span class="username">@SirIsaac</span>
+          </header>          
           <p class="tweet-content">All that glitters is not gold</p>
-         <footer>
-          <span class="timestamp">10 days ago</span>
-          <i class="fa-solid fa-retweet"></i>
-          <i class="fa-solid fa-flag"></i>
-          <i class="fa-solid fa-heart"></i>
-        </footer>
+          <footer>
+            <span class="timestamp">10 days ago</span>
+            <div class="icons">
+              <i class="fa-solid fa-retweet"></i>
+              <i class="fa-solid fa-flag"></i>
+              <i class="fa-solid fa-heart"></i>
+            </div>
+          </footer>
         </article>
 
-        <!-- Repeat for other tweets -->
         <article class="tweet">
           <header>
-            <span class="name">Rosa Frilli</span>
-            <span class="username">@username</span>
-            
+            <img class="decavatar"src="https://i.imgur.com/nlhLi3I.png">
+            <span class="name">Descartes</span>
+            <span class="username">@rd</span>
           </header>
           <p class="tweet-content">All that glitters is not gold</p>
-          
-         <footer>
-          <span class="timestamp">10 days ago</span>
-          <i class="fa-solid fa-retweet"></i>
-          <i class="fa-solid fa-flag"></i>
-          <i class="fa-solid fa-heart"></i>
-        </footer>
+          <footer>
+            <span class="timestamp">10 days ago</span>
+            <div class="icons">
+              <i class="fa-solid fa-retweet"></i>
+              <i class="fa-solid fa-flag"></i>
+              <i class="fa-solid fa-heart"></i>
+            </div>
+          </footer>
         </article>
-      </section>
+        
+      </section> <!-- End of tweets-container -->
     </main>
   </body>
 </html>
