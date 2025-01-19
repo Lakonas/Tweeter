@@ -1,21 +1,22 @@
-/* General styling for the tweet container */
-.tweet-container {
+/* Styling for the tweet container (replace .all-tweets with .tweets-container) */
+.tweets-container {
   width: 90%;
   max-width: 900px;
-  margin: 20px 0 20px 20px; /* Align left by removing auto on the right side */
-  padding: 20px;
-  background-color: #f9f9f9;
-  border-radius: 10px;
+  margin: 20px 0 20px 5px;
+  background-color: cornsilk;
+  border: 1px solid black; /* Border around the entire container */
+  border-radius: 0px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 15px;
 }
 
 /* Styling for individual tweet */
 article.tweet {
-  background-color: #fff;
-  border: 1px solid black;
-  border-radius: 8px;
-  margin-bottom: 15px;
-  padding: 15px;
+  background-color: cornsilk;
+  border: 5px solid black; /* Each tweet keeps its own border */
+  border-radius: 1px;
+  padding: 10px;
+  margin-bottom: 20px;
   transition: background-color 0.3s ease;
 }
 
@@ -27,15 +28,15 @@ article.tweet {
 /* Styling for the tweet header */
 article.tweet header {
   display: flex;
-  justify-content: space-between; /* Aligns the name and username on opposite sides */
-  align-items: center;
+  justify-content: flex-start;  /* Align avatar and name */
+  align-items: center;  /* Ensure the avatar and text are aligned vertically */
 }
 
 .username {
-  font-weight: bold;
+  font-weight: normal;
   font-size: 1.1em;
-  color: #1da1f2;
-  margin-left: auto; /* Push username to the right */
+  color: black;
+  margin-left: auto;
 }
 
 .name {
@@ -47,18 +48,23 @@ article.tweet header {
 .tweet-content {
   font-size: 1.1em;
   margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
   color: #333;
+  border-bottom: 3px solid black;
 }
 
+/* Styling for the tweet footer */
 .tweet footer {
   display: flex;
-  justify-content: space-between; /* Distribute content: timestamp on left, icons container on right */
+  justify-content: space-between;
   align-items: center;
   font-size: 0.9em;
 }
 
+/* Timestamp on the left */
 footer .timestamp {
-  flex-grow: 1; /* This makes the timestamp take up all available space on the left */
+  margin-left: left;
 }
 
 footer .icons {
@@ -69,8 +75,10 @@ footer .icons {
 footer .icons i {
   font-size: 1.2em; /* Adjust icon size if needed */
   cursor: pointer; /* Add pointer cursor to icons for interactivity */
+  margin-right: 8px; /* Add space between each icon */
 }
 
 footer .icons i:hover {
   color: #1da1f2; /* Change color on hover */
 }
+
