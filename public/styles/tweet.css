@@ -4,9 +4,9 @@
   max-width: 900px;
   margin: 20px 0 20px 5px;
   background-color: cornsilk;
-  border: 1px solid black; /* Border around the entire container */
-  border-radius: 0px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+ /* border: 1px solid black; /* Border around the entire container */
+  /*border-radius: 0px;*/
+  /*box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);*/
   padding: 15px;
 }
 
@@ -41,6 +41,7 @@ article.tweet header {
 
 .name {
   font-size: 0.9em;
+  margin-left: 10px;
   color: #657786;
 }
 
@@ -82,3 +83,10 @@ footer .icons i:hover {
   color: #1da1f2; /* Change color on hover */
 }
 
+
+.tweet header .avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
