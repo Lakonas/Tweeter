@@ -40,7 +40,7 @@ $(document).ready(function() {
     $('.tweets-container').empty();
     for (let tweet of tweets) {
       const $tweet = createTweetElement(tweet);
-      $('.tweets-container').append($tweet);  // Prepend to show the newest tweet first
+      $('.tweets-container').prepend($tweet);  // Prepend to show the newest tweet first
     }
   };
 
@@ -80,7 +80,7 @@ $(document).ready(function() {
     if (tweetText.trim() !== "") {
      
       const newTweet = {
-        user: data[0].user,  // Use the first user's data (replace this with whichever user you want)
+        user: data[0].user,  
         content: {
           text: tweetText
         },
