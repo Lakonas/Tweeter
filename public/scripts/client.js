@@ -6,7 +6,14 @@
 
 
 // Test / driver code (temporary). Eventually will get this from the server.
-$$(document).ready(function() {
+/*
+ * Client-side JS logic goes here
+ * jQuery is already loaded
+ * Reminder: Use (and do all your DOM work in) jQuery's document ready function
+ */
+
+// Test / driver code (temporary). Eventually will get this from the server.
+$(document).ready(function() {
 
   // Function to render all tweets in the container
   const renderTweets = function(tweets) {
@@ -63,11 +70,18 @@ $$(document).ready(function() {
   $("form").on("submit", function(event) {
     event.preventDefault(); // Prevent form submission (page refresh)
 
-    // Get the tweet text from the textarea
-    const tweetText = $('#tweet-text').val();
+    // Get the tweet text from the textarea and trim any extra spaces
+    const tweetText = $('#tweet-text').val().trim();
     
-    // Ensure tweet text is not empty before proceeding
-    if (tweetText.trim() !== "") {
+    // Check if tweet text is empty
+    if (tweetText === "") {
+      alert("Tweet field cannot be empty.");
+    } 
+    // Check if tweet text exceeds the character limit (140 characters)
+    else if (tweetText.length > 140) {
+      alert("Tweet cannot exceed 140 characters.");
+    } 
+    else {
       // Send the tweet data to the server via POST request
       $.ajax({
         method: 'POST',
@@ -85,8 +99,6 @@ $$(document).ready(function() {
           console.error('Error posting tweet:', err);
         }
       });
-    } else {
-      alert("Tweet content cannot be empty.");
     }
   });
 });
