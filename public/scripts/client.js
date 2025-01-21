@@ -6,38 +6,14 @@
 
 
 // Test / driver code (temporary). Eventually will get this from the server.
-$(document).ready(function() {
-
-  // Initial tweets data (these are hardcoded for now)
-  const data = [
-    {
-      "user": {
-        "name": "Newton",
-        "avatars": "https://i.imgur.com/73hZDYK.png",
-        "handle": "@SirIsaac"
-      },
-      "content": {
-        "text": "If I have seen further it is by standing on the shoulders of giants"
-      },
-      "created_at": 1461116232227
-    },
-    {
-      "user": {
-        "name": "Descartes",
-        "avatars": "https://i.imgur.com/nlhLi3I.png",
-        "handle": "@rd"
-      },
-      "content": {
-        "text": "Je pense , donc je suis"
-      },
-      "created_at": 1461113959088
-    }
-  ];
+$$(document).ready(function() {
 
   // Function to render all tweets in the container
   const renderTweets = function(tweets) {
     // Clear the container before rendering tweets
     $('.tweets-container').empty();
+
+    // Render each tweet and prepend it (newest tweet at the top)
     for (let tweet of tweets) {
       const $tweet = createTweetElement(tweet);
       $('.tweets-container').prepend($tweet);  // Prepend to show the newest tweet first
@@ -66,8 +42,22 @@ $(document).ready(function() {
     `);
   };
 
-  // Initial rendering of tweets
-  renderTweets(data);
+  // Initial rendering of tweets (fetch from the server)
+  const loadTweets = function() {
+    $.ajax({
+      method: 'GET',
+      url: '/tweets',  // Fetch the latest tweets from the server
+      success: function(tweets) {
+        renderTweets(tweets);
+      },
+      error: function(err) {
+        console.error('Error loading tweets:', err);
+      }
+    });
+  };
+
+  // Load tweets initially from the server
+  loadTweets();
 
   // Handle tweet form submission
   $("form").on("submit", function(event) {
@@ -78,24 +68,23 @@ $(document).ready(function() {
     
     // Ensure tweet text is not empty before proceeding
     if (tweetText.trim() !== "") {
-     
-      const newTweet = {
-        user: data[0].user,  
-        content: {
-          text: tweetText
+      // Send the tweet data to the server via POST request
+      $.ajax({
+        method: 'POST',
+        url: '/tweets',  // Server endpoint to create a new tweet
+        data: $(this).serialize(),  // Serialize the form data
+        success: function() {
+          // After a successful POST, load the updated list of tweets
+          loadTweets();
+
+          // Clear the textarea and reset the character counter
+          $('#tweet-text').val('');
+          $('.counter').text(140);
         },
-        created_at: Date.now()  // Use the current timestamp for the new tweet
-      };
-
-      
-      data.unshift(newTweet);  // Add the new tweet at the beginning of the array (for newest tweets first)
-
-      // Re-render the tweets (clear and append new tweets)
-      renderTweets(data);
-
-      // Clear the textarea and reset the character counter
-      $('#tweet-text').val('');
-      $('.counter').text(140);
+        error: function(err) {
+          console.error('Error posting tweet:', err);
+        }
+      });
     } else {
       alert("Tweet content cannot be empty.");
     }
