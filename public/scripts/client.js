@@ -13,6 +13,7 @@
  */
 
 // Test / driver code (temporary). Eventually will get this from the server.
+
 $(document).ready(function() {
 
   // Function to render all tweets in the container
@@ -27,6 +28,12 @@ $(document).ready(function() {
     }
   };
 
+  const escape = function (str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
+
   // Function to create a single tweet element
   const createTweetElement = function(tweet) {
     return $(`
@@ -36,7 +43,7 @@ $(document).ready(function() {
           <span class="name">${tweet.user.name}</span>
           <span class="handle">${tweet.user.handle}</span>
         </header>
-        <p class="tweet-content">${tweet.content.text}</p>
+        <p class="tweet-content">${escape(tweet.content.text)}</p>
         <footer>
           <span class="timestamp">${timeago.format(tweet.created_at)}</span>
           <div class="icons">
@@ -56,12 +63,10 @@ $(document).ready(function() {
       url: '/tweets',  // Fetch the latest tweets from the server
       success: function(tweets) {
         renderTweets(tweets);
-      },
-      error: function(err) {
-        console.error('Error loading tweets:', err);
       }
     });
   };
+
 
   // Load tweets initially from the server
   loadTweets();
@@ -73,13 +78,21 @@ $(document).ready(function() {
     // Get the tweet text from the textarea and trim any extra spaces
     const tweetText = $('#tweet-text').val().trim();
     
+    // Hide the error message before each new submission attempt
+    $('.error-message').slideUp();
+
     // Check if tweet text is empty
     if (tweetText === "") {
-      alert("Tweet field cannot be empty.");
+      // Show error message for empty tweet
+      $('.error-message').text("Field cannot be empty").slideDown();
+      return;
     } 
+    
     // Check if tweet text exceeds the character limit (140 characters)
     else if (tweetText.length > 140) {
-      alert("Tweet cannot exceed 140 characters.");
+      // Show error message for exceeding character limit
+      $('.error-message').text("Please stay within 140 characters").slideDown();
+      return;
     } 
     else {
       // Send the tweet data to the server via POST request
@@ -94,10 +107,11 @@ $(document).ready(function() {
           // Clear the textarea and reset the character counter
           $('#tweet-text').val('');
           $('.counter').text(140);
+
+          // Hide the error message after tweet submission
+          $('.error-message').slideUp();
         },
-        error: function(err) {
-          console.error('Error posting tweet:', err);
-        }
+        
       });
     }
   });
