@@ -3,6 +3,8 @@
  * https://css-tricks.com/international-box-sizing-awareness-day/
  * Do not modify these two selectors, please
  */
+
+/* Global box-sizing */
 html {
   box-sizing: border-box;
 }
@@ -10,29 +12,54 @@ html {
   box-sizing: inherit;
 }
 
-/*
- * Global layout stuff
- */
-
- body {
+/* Body styling */
+body {
   color: #545149;
   background-color: cornsilk;
   font-size: 24px;
   font-family: 'Source Sans 3', sans-serif;
-  padding-top: 120px;
+  padding-top: 120px;  /* Add space for the navbar */
 }
 
-/*
- * Additional CSS can be defined below or in other CSS files, as per instructions
- */
-.container{
-
-  width:90%;
-  margin: 0 auto;
+/* Container styling */
+.container {
+  width: 90%;
+  position: absolute;  
+  top: 200px;  
   background-color: cornsilk;
   display: flex;
-  justify-content: flex-start;
-  flex-direction: column;
-
-
+  justify-content: flex-end;  
+  flex-direction: column;     
+  align-items: flex-end;      
+  margin-left: 7%;
 }
+
+/* New tweet section */
+.new-tweet {
+  width: 100%; /* Full width */
+  max-width: 900px;
+  
+  padding: 20px;
+  background-color: cornsilk;
+  border-radius: 10px;
+}
+
+
+@media (max-width: 1024px) {
+  .container {
+    width: 100%;  /* Full width for the container */
+    justify-content: flex-start;  /* Align child elements to the left */
+    align-items: flex-start;  /* Align items to the left */
+    margin-left:30px;  /* Remove left margin */
+    margin-top: 200px;
+  }
+}
+
+  /* New tweet section on smaller screens */
+  @media (max-width: 1024px) {
+    .new-tweet {
+      margin-top: 200px;  
+    }
+  }
+  
+  
