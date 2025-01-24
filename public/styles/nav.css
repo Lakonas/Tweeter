@@ -1,8 +1,8 @@
 .navbar {
   height: 120px;
   width: 100%;
-  background-color: #4056A1;
-  color: #FFFFFF;
+  background-color: #4056A1; /* As per requirements */
+  color: #FFFFFF; /* As per requirements */
   line-height: 1.15;
   padding-left: 1.5em;
   padding-right: 1.5em;
@@ -27,7 +27,7 @@ body {
 }
 
 .navbar .writetweet {
-  color: #FFFFFF;
+  color: #FFFFFF; /* As per requirements */
   margin-left: auto;
   font-size: 20px;
   display:flex;
@@ -37,7 +37,13 @@ body {
 
 
 }
-
+/* navbar.css */
+@media (max-width: 1024px) { 
+  .navbar {
+    background-color: #993000;  /* Navbar color matches profile */
+    background-image: url("https://www.transparenttextures.com/patterns/binding-light.png");
+  }
+}
 
 
 
