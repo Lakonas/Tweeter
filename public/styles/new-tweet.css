@@ -1,10 +1,11 @@
 /* Styling for the new tweet section */
+
 .new-tweet {
-  width: 100%;
-  max-width: 900px; /* You can adjust this width */
+  width: 100%; /* Full width */
+  max-width: 900px;
+  
   padding: 20px;
   background-color: cornsilk;
-  margin-top: 60px;
   border-radius: 10px;
 }
 
@@ -49,10 +50,10 @@ div {
 .counter {
   font-size: 20px;
   color: black;
+  font-family: 'Bungee', sans-serif;
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  font-family: 'Bungee', sans-serif;
 }
 
 /* Button styling */
@@ -81,7 +82,6 @@ button:hover {
   font-size: 30px;
   border-radius: 5px;
   font-family: 'Source Sans 3', sans-serif;
-  
   margin-bottom: 30px;
 }
 
@@ -99,5 +99,42 @@ button:hover {
   100% {
     transform: translateY(0);
     opacity: 1;
+  }
+}
+
+/* Media query for smaller screens */
+@media (max-width: 1024px) {
+  .new-tweet {
+    width: 100%; /* Full width */
+    max-width: 900px;
+    margin-top: 20px; /* Space between the header and new-tweet */
+    padding: 20px;
+    background-color: cornsilk;
+    border-radius: 10px;
+  }
+
+  /* Button styling for the new tweet section on smaller screens */
+  button {
+    padding: 8px 16px;
+    background-color: blue;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Bungee', sans-serif;
+  }
+
+  button:hover {
+    background-color: darkblue;
+  }
+
+  /* Character counter styling */
+  .counter {
+    font-size: 20px;
+    color: black;
+    font-family: 'Bungee', sans-serif;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
   }
 }
