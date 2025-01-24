@@ -1,22 +1,70 @@
+
+/* header.css */
+header {
+  padding-top: 120px;  /* Add padding to push header down below the fixed navbar */
+  position: relative;  /* Ensure the header remains in document flow */
+  margin-left: 6%;
+  z-index: 9;  /* Lower z-index so the profile doesn't overlap the navbar */
+}
+
 .profile {
-  width: 100%;
+  width: 35%;
   height: 400px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 150px;
   background-color: #993000;
   background-image: url("https://www.transparenttextures.com/patterns/binding-light.png");
   background-size: cover;
-  
 }
 
 .avatar {
-  width: 120px; /* adjust as needed */
-  height: 120px; /* adjust as needed */
-  
+  width: 120px; 
+  height: 120px; 
 }
 
 h2 {
   text-align: center;
+}
+
+/* Adjustments for small screens (max-width 1024px) */
+/* header.css */
+@media (max-width: 1024px) {
+  .profile {
+    position:absolute;  /* Fix the profile at the top */
+    top: 0;
+    left: 0;
+    width: 100%;  /* Profile takes full width on smaller screens */
+    height: 250px; /* Adjust the height to prevent overlap */
+    z-index: 20;  /* Ensure profile stays on top */
+    margin-top: 200;
+    padding: 10px;  /* Add padding for spacing */
+    background-color: #993000;
+    background-image: url("https://www.transparenttextures.com/patterns/binding-light.png");
+    background-size: cover;
+    margin-top: 120px;
+    margin-left: 0;
+    display: flex;
+    padding-top: 20px;
+   
+    
+    
+  }
+
+  .avatar {
+    width: 120px;
+    height: 120px;
+    
+  }
+
+  h2 {
+    text-align: center;
+  }
+
+  
+  body {
+    padding-top: 160px;  
+  }
 }
