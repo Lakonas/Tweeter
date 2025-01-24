@@ -1,12 +1,9 @@
-/* Styling for the tweet container (replace .all-tweets with .tweets-container) */
+/* Styling for the tweet container */
 .tweets-container {
-  width: 90%;
+  width: 90%;                 /* 90% of parent element container according to instructions*/
   max-width: 900px;
   margin: 20px 0 20px 5px;
   background-color: cornsilk;
- /* border: 1px solid black; /* Border around the entire container */
-  /*border-radius: 0px;*/
-  /*box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);*/
   padding: 15px;
 }
 
@@ -17,18 +14,21 @@ article.tweet {
   border-radius: 1px;
   padding: 10px;
   margin-bottom: 20px;
+  max-width: 100%;
   transition: background-color 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Hover effect for tweet */
 .tweet:hover {
   background-color: #f0f8ff;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 /* Styling for the tweet header */
 article.tweet header {
   display: flex;
-  justify-content: flex-start;  /* Align avatar and name */
+  justify-content: space-between;  /* Align avatar and name */
   align-items: center;  /* Ensure the avatar and text are aligned vertically */
 }
 
@@ -36,13 +36,14 @@ article.tweet header {
   font-weight: normal;
   font-size: 1.1em;
   color: black;
-  margin-left: auto;
+  margin-left: auto;  /* Adjust the margin here */
 }
 
 .name {
   font-size: 0.9em;
   margin-left: 10px;
   color: #657786;
+  margin-right: auto;
 }
 
 /* Styling for the tweet content */
@@ -83,10 +84,11 @@ footer .icons i:hover {
   color: #1da1f2; /* Change color on hover */
 }
 
-
+/* Styling for tweet avatars */
 .tweet header .avatar {
   width: 40px;
   height: 40px;
   border-radius: 50%;
   object-fit: cover;
 }
+
